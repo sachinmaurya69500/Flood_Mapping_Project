@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.log
+*.tif
+*.tif.aux.xml
+*.xml
+.env
+.venv/
+venv/
+logs/
+data/raw/
+data/output/
