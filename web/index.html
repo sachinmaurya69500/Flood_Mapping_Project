@@ -9,6 +9,8 @@
 
     <link rel="stylesheet"
           href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+    <link rel="stylesheet"
+          href="https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.css"/>
 
     <link rel="stylesheet"
           href="style.css">
@@ -18,8 +20,23 @@
 <body>
 
     <div id="map"></div>
+    <aside id="panel">
+        <h1>Flood Mapping</h1>
+        <label>Before start <input id="beforeStart" type="date" value="2018-07-20"></label>
+        <label>Before end <input id="beforeEnd" type="date" value="2018-08-05"></label>
+        <label>After start <input id="afterStart" type="date" value="2018-08-20"></label>
+        <label>After end <input id="afterEnd" type="date" value="2018-09-05"></label>
+        <label>Polarization <select id="polarization"><option>VV</option><option>VH</option></select></label>
+        <label>Flood threshold (dB) <input id="threshold" type="number" value="3" step="0.5"></label>
+        <button id="india" class="secondary">Show whole India</button>
+        <button id="run">Load Earth Engine data</button>
+        <small id="selection">Click the map or draw a rectangle to choose an area.</small>
+        <div id="layers"></div>
+        <pre id="result">Choose dates and run an analysis.</pre>
+    </aside>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.js"></script>
 
     <script src="app.js"></script>
 

@@ -1,14 +1,29 @@
-<<<<<<< HEAD
-# FloodMappingProject
+# Flood Mapping Project
 
-Project scaffold for flood mapping workflows.
+Container-ready Sentinel-1 flood mapping application using Google Earth Engine.
 
-## Structure
+## Run locally
 
-- `src/` - application modules
-- `data/` - raw, processed, and output data
-- `notebooks/` - analysis notebooks
-- `docs/` - project documentation
-=======
-# Flood_Mapping_Project
->>>>>>> a31c042beb27e2d0901b823f78406bc9f084d17d
+```bash
+cd Flood_Mapping_Project
+python -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt
+export EE_PROJECT_ID=your-google-cloud-project-id
+earthengine authenticate
+PYTHONPATH=src python -m api
+```
+
+Open http://localhost:8086. The API exposes `GET /health` and `POST /api/run`.
+
+## Run with Docker
+
+```bash
+docker build -t flood-mapping .
+docker run --rm -p 8086:8086 \
+  -e EE_PROJECT_ID=your-project-id \
+  -v "$HOME/.config/earthengine:/root/.config/earthengine:ro" \
+  flood-mapping
+```
+
+For hosted deployment, use Application Default Credentials or a service account
+through the platform secret manager; never commit credential files.

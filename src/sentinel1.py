@@ -1,4 +1,5 @@
 import ee
+from config import INSTRUMENT_MODE, POLARIZATION, RESOLUTION
 
 
 class Sentinel1Downloader:
@@ -13,19 +14,13 @@ class Sentinel1Downloader:
             .filter(
                 ee.Filter.eq(
                     "instrumentMode",
-                    "IW"
-                )
-            )
-            .filter(
-                ee.Filter.listContains(
-                    "transmitterReceiverPolarisation",
-                    "VV"
+                    INSTRUMENT_MODE
                 )
             )
             .filter(
                 ee.Filter.eq(
                     "resolution_meters",
-                    10
+                    RESOLUTION
                 )
             )
         )
@@ -39,7 +34,7 @@ class Sentinel1Downloader:
                 start_date,
                 end_date
             )
-            .select("VV")
+            .select(POLARIZATION)
             .median()
             .clip(self.roi)
         )

@@ -13,3 +13,36 @@ body {
     height: 100vh;
 
 }
+
+#panel {
+    position: fixed;
+    z-index: 1000;
+    top: 16px;
+    left: 16px;
+    width: 290px;
+    padding: 20px;
+    background: #ffffffee;
+    backdrop-filter: blur(12px);
+    border: 1px solid #dbe4ef;
+    border-radius: 14px;
+    box-shadow: 0 8px 30px #0f294220;
+    font-family: system-ui, sans-serif;
+    max-height: calc(100vh - 32px);
+    overflow-y: auto;
+}
+
+#panel h1 { margin: 0 0 4px; font-size: 1.35rem; color: #102a43; }
+#panel p { margin: 0 0 16px; color: #627d98; font-size: .9rem; }
+#run { padding: 11px 12px; cursor: pointer; border: 0; border-radius: 8px; color: white; background: #147d92; font-weight: 600; }
+#india { background: #e8f1f5; color: #102a43; margin-bottom: 0; }
+#india:hover { background: #d5e6ed; }
+#run:hover { background: #0f6475; }
+#run:disabled { opacity: .65; cursor: wait; }
+#result { min-height: 48px; white-space: pre-wrap; font-size: .85rem; line-height: 1.45; }
+#result.loading { color: #486581; }
+#result.success { color: #176b47; }
+#result.error { color: #b42318; background: #fff1f0; padding: 10px; border-radius: 7px; }
+#panel label { display: block; margin: 7px 0; font-size: .85rem; }
+#panel input, #panel select { float: right; width: 125px; }
+#panel button { margin: 10px 0; padding: 9px; width: 100%; cursor: pointer; }
+#selection { display: block; color: #627d98; line-height: 1.4; }

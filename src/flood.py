@@ -1,4 +1,5 @@
 import ee
+from config import SCALE
 
 
 class FloodDetector:
@@ -21,14 +22,14 @@ class FloodDetector:
             .focal_max(radius=30, units="meters")
         )
 
-    def calculate_area(self, mask):
+    def calculate_area(self, mask, scale=None):
         return (
             mask
             .multiply(ee.Image.pixelArea())
             .reduceRegion(
                 reducer=ee.Reducer.sum(),
                 geometry=self.before.geometry(),
-                scale=10,
+                scale=scale or SCALE,
                 maxPixels=1e13
             )
         )

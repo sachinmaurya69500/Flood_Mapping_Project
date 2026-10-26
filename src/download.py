@@ -1,17 +1,15 @@
 import ee
+from auth import initialize_earth_engine
 from config import *
 from utils import get_roi
 
-PROJECT_ID = "active-thunder-470817-m9"
-
-ee.Initialize(project=PROJECT_ID)
-
+initialize_earth_engine()
 roi = get_roi()
 
 collection = (
     ee.ImageCollection("COPERNICUS/S1_GRD")
     .filterBounds(roi)
-    .filter(ee.Filter.eq("instrumentMode", "IW"))
+    .filter(ee.Filter.eq("instrumentMode", INSTRUMENT_MODE))
     .filter(
         ee.Filter.listContains(
             "transmitterReceiverPolarisation",
