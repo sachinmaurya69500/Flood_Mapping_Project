@@ -1,0 +1,8 @@
+{
+  "buildCommand": "",
+  "functions": {
+    "src/api.py": {
+      "maxDuration": 60
+    }
+  }
+}
